@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         \Modules\KodeRegistrasi\Providers\KodeRegistrasiServiceProvider::class,
+        \Modules\User\Providers\UserServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "353b9901eb097a63378168882f9a9a86",
+    "content-hash": "3ab21954a113af9f6d8e1daaeb27a21f",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -2344,6 +2344,68 @@
             "time": "2020-12-07T05:59:45+00:00"
         },
         {
+            "name": "kirschbaum-development/eloquent-power-joins",
+            "version": "2.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kirschbaum-development/eloquent-power-joins.git",
+                "reference": "d98172319faf0a4cb672c205d277d0a4c4c37333"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kirschbaum-development/eloquent-power-joins/zipball/d98172319faf0a4cb672c205d277d0a4c4c37333",
+                "reference": "d98172319faf0a4cb672c205d277d0a4c4c37333",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.0@dev",
+                "orchestra/testbench": "4.*|5.*|6.*",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kirschbaum\\PowerJoins\\PowerJoinsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kirschbaum\\PowerJoins\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luis Dalmolin",
+                    "email": "luis.nh@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The Laravel magic applied to joins.",
+            "homepage": "https://github.com/kirschbaum-development/eloquent-power-joins",
+            "keywords": [
+                "eloquent",
+                "join",
+                "laravel",
+                "mysql"
+            ],
+            "support": {
+                "issues": "https://github.com/kirschbaum-development/eloquent-power-joins/issues",
+                "source": "https://github.com/kirschbaum-development/eloquent-power-joins/tree/2.3.2"
+            },
+            "time": "2020-12-29T19:20:35+00:00"
+        },
+        {
             "name": "laminas/laminas-code",
             "version": "3.5.1",
             "source": {
@@ -2838,17 +2900,11 @@
         },
         {
             "name": "laravolt/avatar",
-            "version": "4.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravolt/avatar.git",
-                "reference": "ada18a96ac378a3888b38d1f9a75abc809023e37"
-            },
+            "version": "dev-master",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravolt/avatar/zipball/ada18a96ac378a3888b38d1f9a75abc809023e37",
-                "reference": "ada18a96ac378a3888b38d1f9a75abc809023e37",
-                "shasum": ""
+                "type": "path",
+                "url": "../laravolt-standalone/avatar",
+                "reference": "ada18a96ac378a3888b38d1f9a75abc809023e37"
             },
             "require": {
                 "illuminate/cache": "6.* | 7.*| 8.*",
@@ -2864,7 +2920,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "4.0-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -2880,7 +2936,16 @@
                     "Laravolt\\Avatar\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Laravolt\\Avatar\\Test\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -2900,11 +2965,63 @@
                 "laravel",
                 "laravolt"
             ],
-            "support": {
-                "issues": "https://github.com/laravolt/avatar/issues",
-                "source": "https://github.com/laravolt/avatar/tree/4.0.0"
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "laravolt/camunda",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../laravolt-standalone/camunda",
+                "reference": "6baac3ac81f099dea49e2a1d0c39c95c185282fa"
             },
-            "time": "2020-09-10T17:42:04+00:00"
+            "require": {
+                "ext-simplexml": "*",
+                "illuminate/support": "^8.0",
+                "php": ">=8.0",
+                "spatie/data-transfer-object": "^2.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravolt\\Camunda\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravolt\\Camunda\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bayu Hendra Winata",
+                    "email": "uyab.exe@gmail.com",
+                    "homepage": "https://laravolt.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "High level model, something like Eloquent, to interact with Camunda resources via REST API",
+            "homepage": "https://github.com/laravolt/camunda",
+            "keywords": [
+                "camunda",
+                "laravel",
+                "laravolt"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "laravolt/laravolt",
@@ -4975,6 +5092,65 @@
                 "source": "https://github.com/Seldaek/phar-utils/tree/master"
             },
             "time": "2020-07-07T18:42:57+00:00"
+        },
+        {
+            "name": "spatie/data-transfer-object",
+            "version": "2.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/data-transfer-object.git",
+                "reference": "1d2de1f766b93b779055f77f1e7cf57b4172c28c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/data-transfer-object/zipball/1d2de1f766b93b779055f77f1e7cf57b4172c28c",
+                "reference": "1d2de1f766b93b779055f77f1e7cf57b4172c28c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "suggest": {
+                "phpstan/phpstan": "Take advantage of checkUninitializedProperties with \\Spatie\\DataTransferObject\\PHPstan\\PropertiesAreAlwaysInitializedExtension"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\DataTransferObject\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brent Roose",
+                    "email": "brent@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Data transfer objects with batteries included",
+            "homepage": "https://github.com/spatie/data-transfer-object",
+            "keywords": [
+                "data-transfer-object",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/data-transfer-object/issues",
+                "source": "https://github.com/spatie/data-transfer-object/tree/2.8.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.patreon.com/spatie",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-01-27T15:08:16+00:00"
         },
         {
             "name": "spatie/db-dumper",
@@ -10653,6 +10829,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "laravolt/avatar": 20,
+        "laravolt/camunda": 20,
         "laravolt/laravolt": 20
     },
     "prefer-stable": true,

@@ -14,6 +14,27 @@
             "options": {
                 "symlink": true
             }
+        },
+        {
+            "type": "path",
+            "url": "../laravolt-standalone/avatar",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../laravolt-standalone/indonesia",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../laravolt-standalone/camunda/",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "require": {
@@ -22,8 +43,11 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "kirschbaum-development/eloquent-power-joins": "^2.3",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
+        "laravolt/avatar": "4.0.x-dev",
+        "laravolt/camunda": "4.1.x-dev",
         "laravolt/laravolt": "dev-master"
     },
     "require-dev": {
@@ -47,7 +71,10 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/",
+            "Modules\\": "modules/"
         },
         "files": [
             "packages/uyab/kamus/src/helpers.php"

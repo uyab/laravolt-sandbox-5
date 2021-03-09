@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
-use Laravolt\Support\Traits\AutoFilter;
-use Laravolt\Support\Traits\AutoSearch;
-use Laravolt\Support\Traits\AutoSort;
+use Laravolt\Suitable\AutoFilter;
+use Laravolt\Suitable\AutoSearch;
+use Laravolt\Suitable\AutoSort;
 
 class User extends \Laravolt\Platform\Models\User
 {
@@ -26,4 +26,14 @@ class User extends \Laravolt\Platform\Models\User
     ];
 
     protected $fillable = ['name', 'email', 'username', 'password', 'status', 'timezone'];
+
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
+    public function address()
+    {
+        return $this->hasOneThrough(UserAddress::class, UserProfile::class);
+    }
 }
