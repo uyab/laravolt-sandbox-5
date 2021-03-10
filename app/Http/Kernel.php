@@ -3,6 +3,9 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Laravolt\Middleware\CheckPassword;
+use Laravolt\Middleware\DetectFlashMessage;
+use Laravolt\Platform\Http\Middleware\FlashMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -37,6 +40,8 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            DetectFlashMessage::class,
+            CheckPassword::class,
         ],
 
         'api' => [

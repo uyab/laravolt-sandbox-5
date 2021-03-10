@@ -165,8 +165,6 @@ return [
         /*
          * Package Service Providers...
          */
-        \Modules\KodeRegistrasi\Providers\KodeRegistrasiServiceProvider::class,
-        \Modules\User\Providers\UserServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -176,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        \App\Providers\TenancyServiceProvider::class,
 
     ],
 
