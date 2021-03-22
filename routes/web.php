@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Home;
 
-Route::get('/', Home::class)->name('home');
-Route::get('/dashboard', Dashboard::class)->name('dashboard')->middleware('auth');
+Route::redirect('/', 'auth/login');
+Route::get('/home', Home::class)->name('home')->middleware('auth', 'verified');
+
+include __DIR__.'/auth.php';
+include __DIR__.'/my.php';

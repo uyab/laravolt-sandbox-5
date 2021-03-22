@@ -10,11 +10,11 @@ use Laravolt\Suitable\AutoSort;
 
 class User extends \Laravolt\Platform\Models\User
 {
-    use HasFactory;
-    use Notifiable;
-    use AutoSort;
     use AutoFilter;
     use AutoSearch;
+    use AutoSort;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that should be hidden for arrays.
@@ -26,14 +26,4 @@ class User extends \Laravolt\Platform\Models\User
     ];
 
     protected $fillable = ['name', 'email', 'username', 'password', 'status', 'timezone'];
-
-    public function profile()
-    {
-        return $this->hasOne(UserProfile::class);
-    }
-
-    public function address()
-    {
-        return $this->hasOneThrough(UserAddress::class, UserProfile::class);
-    }
 }
