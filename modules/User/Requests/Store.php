@@ -16,10 +16,10 @@ class Store extends FormRequest
         return [
             'name' => ['required'],
             'email' => ['required'],
-            'status' => [''],
-            'timezone' => ['required'],
             'email_verified_at' => [''],
             'password' => ['required'],
+            'status' => [''],
+            'timezone' => ['required'],
             'password_changed_at' => [''],
         ];
     }

@@ -26,7 +26,7 @@ class UserServiceProvider extends BaseServiceProvider
         app('laravolt.menu.sidebar')->register(function ($menu) {
             $menu->modules
                 ->add('User', route('modules::user.index'))
-                ->data('icon', 'circle outline')
+                ->data('icon', 'circle')
                 ->data('permission', $this->config['permission'] ?? [])
                 ->active('modules/user/*');
         });

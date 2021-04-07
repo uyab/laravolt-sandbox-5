@@ -16,7 +16,7 @@ class Handler extends ExceptionHandler
         return $request->expectsJson()
             ? response()->json(['message' => $exception->getMessage()], 401)
             : redirect()
-                ->guest($exception->redirectTo() ?? route('auth::login'))
+                ->guest($exception->redirectTo() ?? route('auth::login.show'))
                 ->withWarning(__('Silakan login terlebih dahulu'));
     }
 
@@ -49,13 +49,18 @@ class Handler extends ExceptionHandler
     public function render($request, \Throwable $e)
     {
         if ($e instanceof TokenMismatchException) {
-            return back()->withError(__('Kami mendeteksi tidak ada aktivitas cukup lama, silakan ulangi aksi sebelumnya'));
+            return back()->with(
+                'error',
+                __('Kami mendeteksi tidak ada aktivitas cukup lama, silakan kirim ulang form.')
+            );
         }
 
         if ($e instanceof AuthorizationException) {
-            return redirect()->back(302, [], route('dashboard'))->withError(
-                __('Anda tidak diizinkan mengakses halaman :url',
-                    ['url' => $request->fullUrl()])
+            return redirect()->back(302, [], route('home'))->withError(
+                __(
+                    'Anda tidak diizinkan mengakses halaman :url',
+                    ['url' => $request->fullUrl()]
+                )
             );
         }
 

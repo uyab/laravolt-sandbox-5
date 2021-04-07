@@ -1,0 +1,19 @@
+created:
+    - app/Http/Controllers/PostController.php
+    - database/factories/PostFactory.php
+    - database/migrations/2021_03_31_103506_create_posts_table.php
+    - app/Models/Post.php
+    - tests/Feature/Http/Controllers/PostControllerTest.php
+    - app/Http/Requests/PostUpdateRequest.php
+    - resources/views/post/create.blade.php
+    - resources/views/post/show.blade.php
+    - resources/views/post/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    Models\Tenant: { id: string, data: 'json nullable' }
+    Models\User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable', status: 'string nullable', timezone: 'string default:UTC', password_changed_at: 'datetime nullable' }
+    Models\UserAddress: {  }
+    Models\UserProfile: {  }
+    Post: { title: 'string:400', content: longtext, published_at: 'nullable timestamp' }
+    Comment: { content: longtext, published_at: 'nullable timestamp' }

@@ -10,11 +10,9 @@ use Modules\User\Models\User;
 
 class UserTableView extends TableView
 {
-    protected $showPerPage = true;
-
     public function source()
     {
-        return User::autoSort()->latest()->autoFilter()->autoSearch(request('search'))->paginate();
+        return User::autoSort()->latest()->autoSearch(request('search'))->paginate();
     }
 
     protected function columns()

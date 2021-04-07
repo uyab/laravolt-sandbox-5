@@ -15,5 +15,5 @@ class User extends Model
 
     protected $guarded = [];
 
-    protected $searchableColumns = ["name", "email", "status", "timezone", "email_verified_at", "password", "password_changed_at",];
+    protected $searchableColumns = ["name", "email"];
 }

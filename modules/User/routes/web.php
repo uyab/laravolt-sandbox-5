@@ -4,9 +4,9 @@ use Modules\User\Controllers\UserController;
 
 Route::group(
     [
-        'prefix' => config('modules.user.route.prefix'),
+        'prefix' => config('modules.user.routes.prefix'),
         'as' => 'modules::',
-        'middleware' => config('modules.user.route.middleware'),
+        'middleware' => config('modules.user.routes.middleware'),
     ],
     function () {
         Route::resource('user', UserController::class);

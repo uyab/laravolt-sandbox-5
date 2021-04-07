@@ -1,13 +1,11 @@
-@extends('laravolt::layouts.app')
-
-@section('content')
-
-
-    <x-titlebar title="User">
-        <x-item>
-            <x-link label="Tambah" icon="plus" url="{{ route('modules::user.create') }}"></x-link>
-        </x-item>
-    </x-titlebar>
+<x-laravolt::layout.app :title="'User'">
+    <x-slot name="actions">
+        <x-laravolt::link-button
+            :url="route('modules::user.create')"
+            icon="plus"
+            :label="__('laravolt::action.add')"
+        />
+    </x-slot>
 
     {!! $table !!}
-@stop
+</x-laravolt::layout.app>
