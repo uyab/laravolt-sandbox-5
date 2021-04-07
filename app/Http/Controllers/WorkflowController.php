@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rekrutmen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Laravolt\Camunda\Models\ProcessDefinition;
@@ -43,10 +44,14 @@ class WorkflowController extends Controller
     {
         $processDefinition = ProcessDefinition::findByKey(request('_process_definition'));
         $id = Str::uuid()->toString();
-        $processInstance = $processDefinition->start(
-            collect($request->all())->reject(fn($item, $key) => Str::startsWith($key, '_'))->toArray() + ['id' => $id, 'dokumen_pendukung' => request('_dokumen_pendukung')],
-            $id
-        );
+        $payload = collect($request->all())
+            ->reject(fn($item, $key) => Str::startsWith($key, '_'))
+            ->merge(['dokumen_pendukung' => request('_dokumen_pendukung')])
+            ->toArray();
+
+        $processInstance = $processDefinition->start($payload, $id);
+
+        Rekrutmen::create($payload + ['process_instance_id' => $processInstance->id, 'current_task' => $processInstance->currentTask()->taskDefinitionKey, 'status' => 'ACTIVE']);
 
         return redirect()->route('workflow.show', ['workflow' => $processInstance->id])->with('success', "{$processDefinition->name} berhasil dibuat");
     }

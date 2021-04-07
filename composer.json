@@ -49,6 +49,7 @@
         "laravel/tinker": "^2.5",
         "laravolt/avatar": "dev-master as 4.0.x-dev",
         "laravolt/camunda": "4.1.x-dev",
+        "laravolt/indonesia": "1.0.x-dev",
         "laravolt/laravolt": "dev-master",
         "livewire/livewire": "^2.4",
         "stancl/tenancy": "^3.4"

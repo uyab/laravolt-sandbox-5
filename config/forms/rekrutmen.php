@@ -16,10 +16,13 @@ return [
         'label' => 'Nomor Handphone',
     ],
     [
-        'type' => 'dropdown',
+        'type' => 'dropdownDB',
         'name' => 'domisili',
         'label' => 'Domisil',
-        'options' => ['DKI Jakarta', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur'],
+        'query' => 'select name as id, name from indonesia_cities',
+        'query_key_column' => 'id',
+        'query_display_column' => 'name',
+        'placeholder' => 'Pilih Kabupaten/Kota'
     ],
     [
         'type' => 'uploader',
