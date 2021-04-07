@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Laravolt\Camunda\Models\ProcessDefinition;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,23 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer(
+            'laravolt::menu.sidebar',
+            function () {
+                $processDefinitions = ProcessDefinition::getList();
+                if ($processDefinitions) {
+                    foreach ($processDefinitions as $definition) {
+                        $menu[$definition->name]['order'] = 1;
+                        $menu[$definition->name]['menu'] = [];
+                        $menu[$definition->name]['menu'] = [
+                            'New' => ['route' => ['workflow.create', ['processDefinition' => $definition->key]]],
+                            'List' => ['route' => ['workflow.index', ['processDefinition' => $definition->key]]],
+                        ];
+                    }
+
+                    $this->app['laravolt.menu.builder']->loadArray($menu);
+                }
+            }
+        );
     }
 }

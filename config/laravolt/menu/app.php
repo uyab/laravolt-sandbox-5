@@ -1,10 +1,13 @@
 <?php
 
 return [
-    'App' => [
+    'Build' => [
         'menu' => [
+            'Process Definitions' => [
+                'route' => 'process.index',
+            ],
             'Forms' => [
-                'url' => '#',
+                'route' => 'forms.index',
             ],
         ],
     ],

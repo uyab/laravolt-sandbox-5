@@ -13,6 +13,12 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+    'camunda' => [
+        'url' => env('CAMUNDA_URL', 'http://localhost:8080/engine-rest'),
+        'user' => env('CAMUNDA_USER', 'demo'),
+        'password' => env('CAMUNDA_PASSWORD', 'demo'),
+        'tenant_id' => env('CAMUNDA_TENANT_ID', ''),
+    ],
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),

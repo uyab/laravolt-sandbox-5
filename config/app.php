@@ -165,8 +165,6 @@ return [
         /*
          * Package Service Providers...
          */
-        \Laravolt\UiComponent\UiComponentServiceProvider::class,
-        \Modules\User\Providers\UserServiceProvider::class,
 
         /*
          * Application Service Providers...
