@@ -16,7 +16,7 @@ class CreateTableRekrutmen extends Migration
         Schema::create('rekrutmen', function (Blueprint $table) {
             $table->id();
             $table->string('process_instance_id');
-            $table->string('current_task');
+            $table->string('current_task')->nullable();
             $table->string('status');
 
             $table->text('nama')->nullable();

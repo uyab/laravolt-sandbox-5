@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Laravolt\Camunda\Models\ProcessDefinition;
 use Laravolt\Camunda\Models\ProcessInstance;
-use Ramsey\Uuid\Uuid;
 
 class WorkflowController extends Controller
 {
@@ -18,7 +17,9 @@ class WorkflowController extends Controller
      */
     public function index()
     {
-        //
+        $processDefinition = ProcessDefinition::findByKey(request('processDefinition'));
+
+        return view('workflow.index', compact('processDefinition'));
     }
 
     /**

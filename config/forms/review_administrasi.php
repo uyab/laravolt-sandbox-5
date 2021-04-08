@@ -2,7 +2,7 @@
 return [
     [
         'type' => 'redactor',
-        'name' => 'komentar',
+        'name' => 'komentar_administrasi',
         'label' => 'Komentar',
     ],
     [
