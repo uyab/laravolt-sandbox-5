@@ -9,6 +9,7 @@ use App\Models\User;
 use Laravolt\Suitable\Columns\Label;
 use Laravolt\Suitable\Columns\Numbering;
 use Laravolt\Suitable\Columns\Button;
+use Laravolt\Suitable\Columns\Raw;
 use Laravolt\Suitable\Columns\Text;
 use Laravolt\UiComponent\Livewire\Base\TableView;
 
@@ -39,7 +40,16 @@ class TabelRekrutmen extends TableView
             Text::make('nama'),
             Text::make('email'),
             Text::make('domisili'),
-            Text::make('current_task'),
+            Raw::make(function ($item) {
+                if ($item->current_task !== null) {
+                    $options = (new CurrentTaskFilter())->options();
+                    $status = $options[$item->current_task] ?? $item->current_task;
+                } else {
+                    $status = 'Selesai';
+                }
+
+                return sprintf('<div class="ui label small blue">%s</div>', $status);
+            }),
             Button::make('permalink', ''),
         ];
     }

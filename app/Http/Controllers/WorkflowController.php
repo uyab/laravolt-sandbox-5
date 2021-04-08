@@ -74,8 +74,21 @@ class WorkflowController extends Controller
         }
 
         $completedTasks = $processInstance->completedTasks();
+        $rekrutmen = Rekrutmen::where('process_instance_id', $id)->first()->getAttributes();
+        $forms = [
+            'rekrutmen',
+            'review_administrasi',
+            'wawancara'
+        ];
+        $completedForms = [];
+        foreach ($forms as $form) {
+            if ($task !== null && $form === $task->taskDefinitionKey) {
+                break;
+            }
+            $completedForms[] = $form;
+        }
 
-        return view('workflow.show', compact('processInstance', 'task', 'formDefinition', 'completedTasks'));
+        return view('workflow.show', compact('processInstance', 'task', 'formDefinition', 'completedTasks', 'completedForms', 'rekrutmen'));
     }
 
     /**

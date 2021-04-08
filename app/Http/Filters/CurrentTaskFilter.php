@@ -6,12 +6,16 @@ use Laravolt\UiComponent\Filters\DropdownFilter;
 
 class CurrentTaskFilter extends DropdownFilter
 {
-    protected string $label = 'Current Task';
+    protected string $label = 'Task';
 
     public function apply($data, $value)
     {
         if ($value) {
-            $data->where('current_task', $value);
+            if ($value === 'selesai') {
+                $data->whereNull('current_task');
+            } else {
+                $data->where('current_task', $value);
+            }
         }
 
         return $data;
@@ -23,6 +27,7 @@ class CurrentTaskFilter extends DropdownFilter
             0 => 'Semua',
             'review_administrasi' => 'Review Administrasi',
             'wawancara' => 'Wawancara',
+            'selesai' => 'Selesai',
         ];
     }
 }

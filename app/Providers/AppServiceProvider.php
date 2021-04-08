@@ -34,8 +34,8 @@ class AppServiceProvider extends ServiceProvider
                         $menu[$definition->name]['order'] = 1;
                         $menu[$definition->name]['menu'] = [];
                         $menu[$definition->name]['menu'] = [
-                            'New' => ['route' => ['workflow.create', ['processDefinition' => $definition->key]]],
-                            'List' => ['route' => ['workflow.index', ['processDefinition' => $definition->key]]],
+                            'New' => ['route' => ['workflow.create', ['processDefinition' => $definition->key]], 'icon' => 'plus'],
+                            'List' => ['route' => ['workflow.index', ['processDefinition' => $definition->key]], 'icon' => 'th-list'],
                         ];
                     }
 
