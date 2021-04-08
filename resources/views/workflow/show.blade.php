@@ -1,4 +1,7 @@
 <x-laravolt::layout.app title="Foo">
+    <x-slot name="actions">
+        @include('workflow._button-map', ['id' => $processInstance->id, 'label' => 'Lihat Alur', 'class' => ''])
+    </x-slot>
     <div style="">
         @foreach($completedForms as $formName)
             <x-laravolt::panel title="{{ $formName }}" icon="badge-check">

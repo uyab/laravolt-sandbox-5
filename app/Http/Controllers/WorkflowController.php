@@ -47,7 +47,7 @@ class WorkflowController extends Controller
         $id = Str::uuid()->toString();
         $payload = collect($request->all())
             ->reject(fn($item, $key) => Str::startsWith($key, '_'))
-            ->merge(['dokumen_pendukung' => request('_dokumen_pendukung')])
+            ->merge(['dokumen_pendukung' => request()->media('dokumen_pendukung')->toJson()])
             ->toArray();
 
         $processInstance = $processDefinition->start($payload, $id);
