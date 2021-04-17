@@ -1,10 +1,10 @@
-<x-laravolt::layout.app title="Process Definitions">
+<x-laravolt::layout.app title="Workflows">
 
     <x-laravolt::cards>
         <x-laravolt::card>
             <x-slot name="content">
                 {!! form()->post(route('process.store'))->multipart() !!}
-                {!! form()->uploader('file')->ajax(false)->label('Deploy New Process') !!}
+                {!! form()->uploader('file')->ajax(false)->label('Deploy New Workflow') !!}
                 {!! form()->submit('Deploy') !!}
                 {!! form()->close() !!}
             </x-slot>

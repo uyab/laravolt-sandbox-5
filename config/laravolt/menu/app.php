@@ -3,7 +3,7 @@
 return [
     'Build' => [
         'menu' => [
-            'Process Definitions' => [
+            'Workflows' => [
                 'route' => 'process.index',
                 'icon'  => 'code-branch'
             ],
