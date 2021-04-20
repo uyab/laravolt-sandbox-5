@@ -5,13 +5,12 @@ namespace App\Http\Livewire;
 use App\Http\Filters\ApplyDateFilter;
 use App\Http\Filters\CurrentTaskFilter;
 use App\Models\Rekrutmen;
-use App\Models\User;
 use Laravolt\Suitable\Columns\Label;
 use Laravolt\Suitable\Columns\Numbering;
 use Laravolt\Suitable\Columns\Button;
 use Laravolt\Suitable\Columns\Raw;
 use Laravolt\Suitable\Columns\Text;
-use Laravolt\UiComponent\Livewire\Base\TableView;
+use Laravolt\Ui\TableView;
 
 class TabelRekrutmen extends TableView
 {
