@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('wf_process_definitions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('key')->unique();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->unsignedInteger('version')->default(1);
             $table->timestamps();
         });
