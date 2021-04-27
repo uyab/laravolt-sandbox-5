@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Laravolt\Camunda\Http\ProcessDefinitionClient;
 use Laravolt\Camunda\Models\ProcessDefinition;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         // View::composer(
         //     'laravolt::menu.sidebar',
         //     function () {
-        //         $processDefinitions = ProcessDefinition::getList();
+        //         $processDefinitions = ProcessDefinitionClient::get();
         //         if ($processDefinitions) {
         //             foreach ($processDefinitions as $definition) {
         //                 $menu[$definition->name]['order'] = 1;

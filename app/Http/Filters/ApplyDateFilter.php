@@ -2,7 +2,7 @@
 
 namespace App\Http\Filters;
 
-use Laravolt\UiComponent\Filters\DateFilter;
+use Laravolt\Ui\Filters\DateFilter;
 
 class ApplyDateFilter extends DateFilter
 {

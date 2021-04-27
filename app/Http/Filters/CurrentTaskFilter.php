@@ -2,7 +2,7 @@
 
 namespace App\Http\Filters;
 
-use Laravolt\UiComponent\Filters\DropdownFilter;
+use Laravolt\Ui\Filters\DropdownFilter;
 
 class CurrentTaskFilter extends DropdownFilter
 {

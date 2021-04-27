@@ -16,11 +16,4 @@ class ActiveUsers extends Chart
             'registered' => ['Januari' => 10, 'Feb' => 14, 'Maret' => 40, 'April' => 6, 'Mei' => 55, 'Juni' => 44],
         ];
     }
-
-    public function options(): array
-    {
-        $options = parent::options();
-
-        return $options;
-    }
 }

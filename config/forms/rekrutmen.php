@@ -3,7 +3,7 @@ return [
     [
         'type' => 'text',
         'name' => 'nama',
-        'label' => 'Nama Pelamar',
+        'label' => 'Nama Lengkap Pelamar',
     ],
     [
         'type' => 'email',
@@ -19,7 +19,7 @@ return [
         'type' => 'dropdownDB',
         'name' => 'domisili',
         'label' => 'Domisil',
-        'query' => 'select name as id, name from indonesia_cities',
+        'query' => "select name as id, name from indonesia_cities where province_code = '33'",
         'query_key_column' => 'id',
         'query_display_column' => 'name',
         'placeholder' => 'Pilih Kabupaten/Kota'

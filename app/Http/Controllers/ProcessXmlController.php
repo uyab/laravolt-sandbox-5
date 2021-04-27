@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use Laravolt\Camunda\Models\ProcessDefinition;
-use Laravolt\Camunda\Models\ProcessInstance;
+use Laravolt\Camunda\Http\ProcessDefinitionClient;
+use Laravolt\Camunda\Http\ProcessInstanceClient;
 
 class ProcessXmlController
 {
     public function __invoke($id)
     {
-        $processInstance = ProcessInstance::find($id);
-        $xml = ProcessDefinition::find($processInstance->definitionId)->xml();
+        $processInstance = ProcessInstanceClient::find($id);
+        $xml = ProcessDefinitionClient::xml($processInstance->definitionId);
 
         return response($xml, 200, [
             'Content-Type' => 'application/xml',

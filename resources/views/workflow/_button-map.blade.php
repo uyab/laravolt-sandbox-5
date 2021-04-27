@@ -1,7 +1,7 @@
 <?php
 
 $taskNames = [];
-$tasks = \Laravolt\Camunda\Models\ProcessInstance::find($id)->tasks();
+$tasks = \Laravolt\Camunda\Http\ProcessInstanceClient::tasks($id);
 foreach ($tasks as $task) {
     $taskNames[] = $task->taskDefinitionKey;
 }
@@ -37,7 +37,7 @@ $url = route('process.xml', $id);
                 border-radius: 10px;
             }
         </style>
-        <script src="https://unpkg.com/bpmn-js@5.1.2/dist/bpmn-navigated-viewer.development.js"></script>
+        <script src="https://unpkg.com/bpmn-js@8.3.1/dist/bpmn-viewer.production.min.js"></script>
 
         <script>
             $(function () {

@@ -5,28 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\Rekrutmen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Laravolt\Camunda\Models\ProcessInstance;
-use Laravolt\Camunda\Models\Task;
+use Laravolt\Camunda\Exceptions\CamundaException;
+use Laravolt\Camunda\Http\ProcessInstanceClient;
+use Laravolt\Camunda\Http\TaskClient;
 
 class SubmitTask extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function __invoke(Request $request)
     {
-        $data = collect($request->all())->reject(fn($item, $key) => Str::startsWith($key, '_'))->toArray();
-        $task = new Task(['id' => $request->get('_task_id')]);
-        $task->fetch();
+        try {
+            $data = collect($request->all())->reject(fn($item, $key) => Str::startsWith($key, '_'))->toArray();
+            $taskId = $request->get('_task_id');
+            $task = TaskClient::find($taskId);
 
-        $task->submit($data);
-        $data['current_task'] = optional(ProcessInstance::find($task->processInstanceId)->currentTask())->taskDefinitionKey;
+            TaskClient::submit($taskId, $data);
 
-        Rekrutmen::where('process_instance_id', $task->processInstanceId)->update($data);
+            $currentTasks = ProcessInstanceClient::tasks($task->processInstanceId);
+            $currentTaskKey = optional(\Arr::first($currentTasks))->taskDefinitionKey;
+            $data['current_task'] = $currentTaskKey;
 
-        return back()->with('success', 'Task completed');
+            Rekrutmen::where('process_instance_id', $task->processInstanceId)->update($data);
+
+            return back()->with('success', 'Task completed');
+        } catch (CamundaException $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
     }
 }

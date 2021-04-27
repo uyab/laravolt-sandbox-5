@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Laravolt\Workflow\WorkflowServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -12,7 +12,7 @@ class ActiveUsersArea extends Chart
 
     protected bool $sparkline = true;
 
-    public string $title = 'Trend User Terdaftar';
+    public string $title = 'Trend User Active';
 
     public function series(): array
     {
