@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('wf_process_instances', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('definition_id');
+            $table->string('definition_key');
+            $table->string('tenant_id');
+            $table->jsonb('variables')->default('[]');
+            $table->jsonb('tasks')->default('[]');
             $table->timestamps();
         });
     }
