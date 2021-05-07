@@ -3,14 +3,14 @@
 return [
     'App' => [
         'menu' => [
-            'Workflows' => [
-                'route' => 'process.index',
-                'icon'  => 'code-branch'
+            'Rekrutmen' => [
+                'route' => ['workflow::module.instances.index', 'rekrutmen'],
+                'icon'  => 'inbox'
             ],
-            'Forms' => [
-                'route' => 'forms.index',
-                'icon' => 'pager'
-            ],
+            // 'Forms' => [
+            //     'route' => 'forms.index',
+            //     'icon' => 'pager'
+            // ],
         ],
     ],
 ];

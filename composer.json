@@ -64,7 +64,8 @@
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3",
-        "spatie/laravel-web-tinker": "^1.7"
+        "spatie/laravel-web-tinker": "^1.7",
+        "wulfheart/pretty_routes": "^0.3.0"
     },
     "config": {
         "optimize-autoloader": true,

@@ -8,6 +8,14 @@ use Laravolt\Camunda\Http\ProcessDefinitionClient;
 
 class ProcessController extends Controller
 {
+    /**
+     * ProcessController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('can:process.index');
+    }
+
     public function index()
     {
         $processDefinitions = ProcessDefinitionClient::get(['latestVersion' => true]);

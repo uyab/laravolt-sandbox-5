@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:forms.index');
+    }
+
     /**
      * Display a listing of the resource.
      *
