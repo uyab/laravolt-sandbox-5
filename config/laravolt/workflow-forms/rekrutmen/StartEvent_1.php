@@ -1,33 +1,19 @@
 <?php
 
 return [
-    [
-        'type' => 'text',
-        'name' => 'nama',
-        'label' => 'Nama Lengkap Pelamar',
-    ],
-    [
-        'type' => 'email',
-        'name' => 'email',
-        'label' => 'Email',
-    ],
-    [
-        'type' => 'text',
-        'name' => 'nomor_handphone',
-        'label' => 'Nomor Handphone',
-    ],
-    [
-        'type' => 'dropdownDB',
-        'name' => 'domisili',
-        'label' => 'Domisil',
-        'query' => "select name as id, name from indonesia_cities where province_code = '33'",
-        'query_key_column' => 'id',
-        'query_display_column' => 'name',
-        'placeholder' => 'Pilih Kabupaten/Kota'
-    ],
-    [
-        'type' => 'uploader',
-        'name' => 'dokumen_pendukung',
-        'label' => 'Dokumen Pendukung',
-    ],
+    'full_name' => ['type' => 'text', 'label' => 'Fullname'],
+    'email' => ['type' => 'email', 'label' => 'Email Address'],
+    'phone' => ['type' => 'text', 'label' => 'Phone'],
+    'current_company' => ['type' => 'email', 'label' => 'Current Company'],
+    'birth_day' => ['type' => 'datepicker', 'label' => 'Birth Day'],
+    'birth_place' => ['type' => 'text', 'label' => 'Birth Place'],
+    'latest_education' => ['type' => 'text', 'label' => 'Latest Education'],
+    'male' => ['type' => 'radioGroup', 'label' => 'Jenis Kelamin', 'options' => [1 => 'Male', 0 => 'Female']],
+    'join_date' => ['type' => 'datepicker', 'label' => 'Join Date'],
+    'current_address' => ['type' => 'textarea', 'label' => 'Current Address'],
+    'about' => ['type' => 'textarea', 'label' => 'About'],
+    'portofolio' => ['type' => 'text', 'label' => 'Portofolio URL'],
+    'linkedin_profile' => ['type' => 'text', 'label' => 'Linkedin Profile'],
+    'sumber_lamaran' => ['type' => 'text', 'label' => 'How do you know this opportunity?'],
+    'resume_cv' => ['type' => 'uploader', 'label' => 'Resume/CV'],
 ];
