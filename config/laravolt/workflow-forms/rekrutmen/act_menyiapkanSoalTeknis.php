@@ -1,9 +1,8 @@
 <?php
 
 return [
-    [
+    'link_teknis' => [
         'type' => 'text',
-        'name' => 'full_name',
-        'label' => 'Nama Lengkap Pelamar',
+        'label' => 'Link Soal',
     ],
 ];

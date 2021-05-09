@@ -1,9 +1,12 @@
 <?php
 
 return [
-    [
+    'jawaban_tes_teknis' => [
         'type' => 'text',
-        'name' => 'full_name',
-        'label' => 'Nama Lengkap Pelamar',
+        'label' => 'Jawaban',
+    ],
+    'tes_teknis_file' => [
+        'type' => 'uploader',
+        'label' => 'File',
     ],
 ];

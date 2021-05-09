@@ -1,9 +1,12 @@
 <?php
 
 return [
-    [
+    'hasil_tes_teknis' => [
         'type' => 'text',
-        'name' => 'full_name',
-        'label' => 'Nama Lengkap Pelamar',
+        'label' => 'Review',
+    ],
+    'rekomendasi_tes_teknis' => [
+        'type' => 'checkbox',
+        'label' => 'Apakah Lolos?',
     ],
 ];
