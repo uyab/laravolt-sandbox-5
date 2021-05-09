@@ -49,16 +49,7 @@ class SyncInstances extends Command
 
                 foreach ($instances as $instance) {
                     $variables = ProcessInstanceClient::variables($instance->id);
-                    $tasks = ProcessInstanceClient::tasks($instance->id);
-                    ProcessInstance::updateOrCreate(
-                        ['id' => $instance->id],
-                        [
-                            'definition_id' => $instance->definitionId,
-                            'definition_key' => $key,
-                            'tasks' => $tasks,
-                            'variables' => $variables,
-                        ]
-                    );
+                    ProcessInstance::sync($instance, $variables);
                     $bar->advance();
                 }
                 $bar->finish();

@@ -3,7 +3,7 @@
 return [
     [
         'type' => 'text',
-        'name' => 'nama',
+        'name' => 'full_name',
         'label' => 'Nama Lengkap Pelamar',
     ],
 ];

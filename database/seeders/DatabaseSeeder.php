@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
+use Laravolt\Camunda\Http\ProcessDefinitionClient;
+use Laravolt\Workflow\Models\ProcessDefinition;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,5 +17,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Artisan::call('laravolt:admin Administrator admin@laravolt.dev asdf1234');
+        ProcessDefinition::importFromCamunda(ProcessDefinitionClient::get(['key' => 'proc_rekrutmen']));
     }
 }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->string('definition_id');
             $table->string('definition_key');
+            $table->string('business_key')->nullable();
             $table->string('tenant_id')->nullable();
             $table->jsonb('variables')->default('[]');
             $table->jsonb('tasks')->default('[]');

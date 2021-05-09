@@ -1,9 +1,8 @@
 <?php
 
 return [
-    [
+    'link_coderbyte' => [
         'type' => 'text',
-        'name' => 'nama',
-        'label' => 'Nama Lengkap Pelamar',
+        'label' => 'Link Soal Coderbyte',
     ],
 ];

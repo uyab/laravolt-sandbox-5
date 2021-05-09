@@ -1,9 +1,16 @@
 <?php
 
 return [
-    [
-        'type' => 'text',
-        'name' => 'nama',
-        'label' => 'Nama Lengkap Pelamar',
+    'isTesPsikologi' => [
+        'type' => 'checkbox',
+        'label' => 'Tes Psikologi',
+    ],
+    'isTesTeknis' => [
+        'type' => 'checkbox',
+        'label' => 'Tes Teknis',
+    ],
+    'isTesCoderbyte' => [
+        'type' => 'checkbox',
+        'label' => 'Tes Coderbyte',
     ],
 ];
