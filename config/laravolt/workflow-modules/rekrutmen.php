@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'process_definition_key' => 'proc_rekrutmen',
+    'process_definition_key' => 'proc_bl_rekrutmen',
     'name' => 'Rekrutmen Pegawai',
     'table' => \App\Http\Livewire\ApplicantTables::class,
     'tasks' => [
