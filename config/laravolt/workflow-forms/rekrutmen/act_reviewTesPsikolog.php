@@ -2,11 +2,11 @@
 
 return [
     'hasil_tes_psikolog' => [
-        'type' => 'textarea',
+        'type' => 'redactor',
         'label' => 'Review',
     ],
     'rekomendasi_tes_psikolog' => [
-        'type' => 'checkbox',
-        'label' => 'Rekomendasi',
+        'type' => 'boolean',
+        'label' => 'Apakah Anda Merekomendasikan?',
     ],
 ];

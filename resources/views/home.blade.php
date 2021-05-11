@@ -1,6 +1,9 @@
 <x-laravolt::layout.app title="Home">
 
-    <livewire:chart.active-users/>
+    {!! form()->open() !!}
+    {!! form()->boolean('boolean')->value(1)->label('Boolean') !!}
+    {!! form()->close() !!}
+    {{--<livewire:chart.active-users/>--}}
 
     {{--<div class="ui equal width grid">--}}
     {{--    <div class="row">--}}

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Tables;
 
 use Laravolt\Suitable\Columns\Button;
 use Laravolt\Suitable\Columns\Date;
+use Laravolt\Suitable\Columns\MultipleValues;
 use Laravolt\Suitable\Columns\Numbering;
 use Laravolt\Suitable\Columns\Raw;
 use Laravolt\Ui\TableView;
@@ -39,6 +40,7 @@ class ApplicantTables extends TableView
             Raw::make(fn ($item) => $item->variables->getValue('full_name', '-'), 'Nama'),
             Raw::make(fn ($item) => $item->variables->getValue('email', '-'), 'Email'),
             Raw::make(fn ($item) => $item->variables->getValue('job_title', '-'), 'Posisi'),
+            MultipleValues::make('tasks', 'Tasks'),
             Date::make('created_at', 'Apply Date'),
             Button::make(fn ($item) => route('workflow::module.instances.show', ['rekrutmen', $item->id]), 'Action')->icon('eye'),
         ];

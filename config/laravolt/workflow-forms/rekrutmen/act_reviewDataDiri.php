@@ -13,4 +13,9 @@ return [
         'type' => 'checkbox',
         'label' => 'Tes Coderbyte',
     ],
+    'isvalid' => [
+        'type' => 'boolean',
+        'label' => 'Is Valid?',
+        'value' => 1,
+    ],
 ];

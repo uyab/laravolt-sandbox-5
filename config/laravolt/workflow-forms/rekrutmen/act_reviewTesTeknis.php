@@ -2,11 +2,11 @@
 
 return [
     'hasil_tes_teknis' => [
-        'type' => 'text',
+        'type' => 'redactor',
         'label' => 'Review',
     ],
     'rekomendasi_tes_teknis' => [
-        'type' => 'checkbox',
-        'label' => 'Apakah Lolos?',
+        'type' => 'boolean',
+        'label' => 'Apakah Anda Merekomendasikan?',
     ],
 ];
