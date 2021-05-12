@@ -1,15 +1,15 @@
 <?php
 
 $taskNames = [];
-$tasks = \Laravolt\Camunda\Http\ProcessInstanceClient::tasks($id);
+$tasks = \Laravolt\Camunda\Http\ProcessInstanceClient::tasks($instance->id);
 foreach ($tasks as $task) {
     $taskNames[] = $task->taskDefinitionKey;
 }
-$url = route('process.xml', $id);
+$url = route('workflow::definitions.xml', $instance->definition_id);
 ?>
 
-<button class="ui basic blue button {{ $class ?? '' }}" camunda-map-button>
-    <i class="icon project diagram"></i> {{ $label ?? 'Lihat Diagram' }}
+<button class="ui secondary button {{ $class ?? '' }} {{ config('laravolt.ui.color') }}" camunda-map-button>
+    <i class="icon project diagram"></i> {{ $label ?? 'Flow Diagram' }}
 </button>
 
 @once
@@ -21,7 +21,7 @@ $url = route('process.xml', $id);
             </div>
             <div class="content" camunda-map-diagram style="cursor: move">
                 <div class="ui active inverted dimmer" camunda-diagram-loader>
-                    <div class="ui indeterminate elastic text loader">Memuat Diagram Proses</div>
+                    <div class="ui indeterminate elastic text loader"></div>
                 </div>
             </div>
         </div>

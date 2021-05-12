@@ -23,5 +23,16 @@ class RekrutmenSubscriber
                 }
             );
         }
+
+        if ($event->task->taskDefinitionKey === 'act_undangWawancara') {
+            $event->form->modifyVariables(
+                function ($variables) use ($event) {
+                    $variables['date_interview'] = ['value' => '2021-01-01 10:00'];
+                    $variables['emailTo'] = ['value' => $event->instance->variables->getValue('email')];
+
+                    return $variables;
+                }
+            );
+        }
     }
 }
