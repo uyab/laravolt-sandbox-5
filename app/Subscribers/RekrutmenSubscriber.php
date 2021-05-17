@@ -3,16 +3,16 @@
 namespace App\Subscribers;
 
 use Illuminate\Events\Dispatcher;
-use Laravolt\Workflow\Events\TaskSubmitting;
+use Laravolt\Workflow\Events\TaskCompleting;
 
 class RekrutmenSubscriber
 {
     public function subscribe(Dispatcher $events)
     {
-        $events->listen(TaskSubmitting::class, [self::class, 'attachEppsSessionId']);
+        $events->listen(TaskCompleting::class, [self::class, 'attachEppsSessionId']);
     }
 
-    public function attachEppsSessionId(TaskSubmitting $event)
+    public function attachEppsSessionId(TaskCompleting $event)
     {
         if ($event->task->taskDefinitionKey === 'act_reviewDataDiri') {
             $event->form->modifyVariables(
