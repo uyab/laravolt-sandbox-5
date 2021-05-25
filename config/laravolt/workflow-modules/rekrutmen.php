@@ -8,7 +8,15 @@ return [
     'tasks' => [
         'StartEvent_1' => [
             'form_schema' => [
-                'job_id' => ['type' => 'dropdown', 'label' => 'Posisi ID', 'options' => [1 => 'Programmer PHP']],
+                'job_id' => [
+                    'type' => 'dropdown',
+                    'label' => 'Posisi ID',
+                    'options' => [
+                        1 => 'Programmer PHP',
+                        2 => 'Programmer Java',
+                        3 => 'System Analyst',
+                    ]
+                ],
                 'full_name' => ['type' => 'text', 'label' => 'Fullname'],
                 'email' => ['type' => 'email', 'label' => 'Email Address', 'required' => true],
                 'phone' => ['type' => 'text', 'label' => 'Phone'],
