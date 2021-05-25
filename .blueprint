@@ -1,10 +1,12 @@
 created:
     - app/Http/Controllers/PostController.php
     - database/factories/PostFactory.php
-    - database/migrations/2021_03_31_103506_create_posts_table.php
+    - database/migrations/2021_05_19_005807_create_posts_table.php
     - app/Models/Post.php
     - tests/Feature/Http/Controllers/PostControllerTest.php
+    - app/Http/Requests/PostStoreRequest.php
     - app/Http/Requests/PostUpdateRequest.php
+    - resources/views/post/index.blade.php
     - resources/views/post/create.blade.php
     - resources/views/post/show.blade.php
     - resources/views/post/edit.blade.php

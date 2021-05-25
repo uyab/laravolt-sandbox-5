@@ -40,10 +40,10 @@ class SyncInstances extends Command
      */
     public function handle()
     {
-        $definitions = ProcessDefinition::pluck('key');
+        $definitions = ProcessDefinition::pluck('id');
         if ($definitions->isNotEmpty()) {
-            foreach ($definitions as $key) {
-                $instances = ProcessInstanceClient::get(['processDefinitionKey' => $key]);
+            foreach ($definitions as $id) {
+                $instances = ProcessInstanceClient::get(['processDefinitionId' => $id]);
 
                 $bar = $this->getOutput()->createProgressBar(count($instances));
 

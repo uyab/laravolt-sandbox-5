@@ -7,6 +7,11 @@ return [
     'tasks' => [
         'StartEvent_1' => [
             'form'  => 'forms.rekrutmen.start',
+            'listeners' => [
+                \Laravolt\Workflow\Events\ProcessInstanceStarting::class => [
+                    \App\Listeners\AttachJobTitle::class
+                ]
+            ]
         ],
         'act_reviewDataDiri' => [
             'form'  => 'forms.rekrutmen.act_reviewDataDiri',

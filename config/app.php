@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Laravolt\Workflow\WorkflowServiceProvider::class,
+        // Laravolt\Platform\Providers\BlueprintAddonServiceProvider::class,
 
         /*
          * Application Service Providers...

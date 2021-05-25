@@ -1,7 +1,7 @@
 <?php
 
 $taskNames = [];
-$tasks = \Laravolt\Camunda\Http\ProcessInstanceClient::tasks($instance->id);
+$tasks = \Laravolt\Camunda\Http\TaskClient::getByProcessInstanceId($instance->id);
 foreach ($tasks as $task) {
     $taskNames[] = $task->taskDefinitionKey;
 }
