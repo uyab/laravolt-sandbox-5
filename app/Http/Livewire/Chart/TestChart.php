@@ -6,9 +6,9 @@ use Laravolt\Charts\Chart;
 
 class TestChart extends Chart
 {
-    protected string $title = 'TestChart';
+    public string $title = 'TestChart';
 
-    protected string $type = self::LINE;
+    public string $type = self::LINE;
 
     public function series(): array
     {
