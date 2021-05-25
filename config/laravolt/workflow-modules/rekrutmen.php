@@ -3,7 +3,7 @@
 return [
     'process_definition_key' => 'proc_bl_rekrutmen',
     'name' => 'Rekrutmen Pegawai',
-    'table' => \App\Http\Livewire\Tables\ApplicantTables::class,
+    // 'table' => \App\Http\Livewire\Tables\ApplicantTables::class,
     'table_variables' => ['full_name', 'job_title'],
     'tasks' => [
         'StartEvent_1' => [
