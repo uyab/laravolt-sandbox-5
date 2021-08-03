@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Laravolt\Workflow\WorkflowServiceProvider::class,
+        \Laravolt\AutoCrud\AutoCrudServiceProvider::class,
         // Laravolt\Platform\Providers\BlueprintAddonServiceProvider::class,
 
         /*

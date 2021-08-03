@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Artisan::call('laravolt:admin Administrator admin@laravolt.dev asdf1234');
-        foreach (Module::discover() as $module) {
-            ProcessDefinition::importFromCamunda(ProcessDefinitionClient::get(['key' => $module->processDefinitionKey]));
-        }
+        // foreach (Module::discover() as $module) {
+        //     ProcessDefinition::importFromCamunda(ProcessDefinitionClient::get(['key' => $module->processDefinitionKey]));
+        // }
     }
 }

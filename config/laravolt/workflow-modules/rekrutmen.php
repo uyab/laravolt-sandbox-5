@@ -15,8 +15,9 @@ return [
                         1 => 'Programmer PHP',
                         2 => 'Programmer Java',
                         3 => 'System Analyst',
-                    ]
+                    ],
                 ],
+                'job_title' => ['type' => 'text', 'label' => 'Posisi (Text)'],
                 'full_name' => ['type' => 'text', 'label' => 'Fullname'],
                 'email' => ['type' => 'email', 'label' => 'Email Address', 'required' => true],
                 'phone' => ['type' => 'text', 'label' => 'Phone'],
@@ -71,24 +72,6 @@ return [
             'listeners' => [
                 \Laravolt\Workflow\Events\TaskCompleting::class => [
                     \App\Listeners\AttachEppsSessionId::class,
-                ],
-            ],
-        ],
-        'act_apakahWawancaraDiterima' => [
-            'form_schema' => [
-                [
-                    'type' => 'text',
-                    'name' => 'full_name',
-                    'label' => 'Nama Lengkap Pelamar',
-                ],
-            ],
-        ],
-        'act_inputHasilWawancara' => [
-            'form_schema' => [
-                [
-                    'type' => 'text',
-                    'name' => 'full_name',
-                    'label' => 'Nama Lengkap Pelamar',
                 ],
             ],
         ],
@@ -170,6 +153,13 @@ return [
                     'type' => 'boolean',
                     'label' => 'Apakah Kandidat Diterima?',
                 ],
+                'emailTo' => [
+                    'type' => 'text',
+                    'label' => 'Email Pelamar',
+                ],
+                'openingMsg' => [
+                    'type' => 'hidden',
+                ],
                 'date_interview' => [
                     'type' => 'datepicker',
                     'label' => 'Tanggal Wawancara',
@@ -181,6 +171,22 @@ return [
                 'description_interview' => [
                     'type' => 'textarea',
                     'label' => 'Keterangan',
+                ],
+            ],
+        ],
+        'act_inputHasilWawancara' => [
+            'form_schema' => [
+                'hasil_wawancara' => [
+                    'type' => 'textarea',
+                    'label' => 'Hasil Wawancara',
+                ],
+            ],
+        ],
+        'act_apakahWawancaraDiterima' => [
+            'form_schema' => [
+                'isvalid' => [
+                    'type' => 'boolean',
+                    'label' => 'Apakah Diterima?',
                 ],
             ],
         ],

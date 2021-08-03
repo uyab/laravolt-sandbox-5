@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Laravolt\Suitable\AutoFilter;
@@ -26,4 +27,9 @@ class User extends \Laravolt\Platform\Models\User
     ];
 
     protected $fillable = ['name', 'email', 'username', 'password', 'status', 'timezone'];
+
+    public function scopeAutoSearch(Builder $query, ?string $keyword)
+    {
+        dd('override');
+    }
 }
