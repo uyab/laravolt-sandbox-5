@@ -1,24 +1,11 @@
 <?php
 
 return [
-    'Workflow' => [
+    'Menu Utama' => [
         'menu' => [
-            'Rekrutment' => [
-                'route' => ['workflow::module.instances.index', 'rekrutmen'],
-                'icon'  => 'user-tie'
+            'Dashboard' => [
+                'route' => 'dashboard',
             ],
-            'Document List' => [
-                'route' => ['workflow::module.instances.index', 'dynamic-approval'],
-                'icon'  => 'inbox'
-            ],
-            // 'New Approval' => [
-            //     'url' => 'workflow/module/dynamic-approval/instances/create',
-            //     'icon'  => 'plus'
-            // ],
-            // 'Forms' => [
-            //     'route' => 'forms.index',
-            //     'icon' => 'pager'
-            // ],
         ],
     ],
 ];

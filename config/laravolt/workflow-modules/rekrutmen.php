@@ -5,6 +5,8 @@ return [
     'name' => 'Rekrutmen Pegawai',
     // 'table' => \App\Http\Livewire\Tables\ApplicantTables::class,
     'table_variables' => ['full_name', 'job_title'],
+    'tracker_variables' => ['full_name', 'job_title'],
+    'tracker_tasks' => ['act_konfirmPsikologSelesai', 'act_konfirmTeknisSelesai'],
     'tasks' => [
         'StartEvent_1' => [
             'form_schema' => [
@@ -17,9 +19,13 @@ return [
                         3 => 'System Analyst',
                     ],
                 ],
-                'job_title' => ['type' => 'text', 'label' => 'Posisi (Text)'],
+                'job_title' => ['type' => 'text', 'label' => 'Posisi'],
                 'full_name' => ['type' => 'text', 'label' => 'Fullname'],
-                'email' => ['type' => 'email', 'label' => 'Email Address', 'required' => true],
+                'email' => [
+                    'type' => 'email',
+                    'label' => 'Email Address',
+                    'rules' => ['required']
+                ],
                 'phone' => ['type' => 'text', 'label' => 'Phone'],
                 'current_company' => ['type' => 'text', 'label' => 'Current Company'],
                 'birth_day' => ['type' => 'datepicker', 'label' => 'Birth Day'],
@@ -40,13 +46,16 @@ return [
                 'portofolio' => ['type' => 'text', 'label' => 'Portofolio URL'],
                 'linkedin_profile' => ['type' => 'text', 'label' => 'Linkedin Profile'],
                 'sumber_lamaran' => ['type' => 'text', 'label' => 'How do you know this opportunity?'],
-                'resume_cv' => ['type' => 'uploader', 'label' => 'Resume/CV'],
+                'resume_cv' => ['type' => 'uploader', 'label' => 'Resume/CV', 'rules' => ['required']],
                 'additional_information' => ['type' => 'redactor', 'label' => 'Additional Information'],
             ],
             'listeners' => [
                 \Laravolt\Workflow\Events\ProcessInstanceStarting::class => [
                     \App\Listeners\AttachJobTitle::class,
                 ],
+            ],
+            'messages' => [
+                'success' => 'Your application was successfully submitted. Please be patient and periodically check this tracking page.'
             ],
         ],
         'act_reviewDataDiri' => [
@@ -68,6 +77,11 @@ return [
                     'label' => 'Is Valid?',
                     'value' => 1,
                 ],
+                'comment' => [
+                    'type' => 'text',
+                    'label' => 'Comment',
+                    'rules' => ['required']
+                ]
             ],
             'listeners' => [
                 \Laravolt\Workflow\Events\TaskCompleting::class => [
@@ -75,35 +89,28 @@ return [
                 ],
             ],
         ],
-        'act_konfirmCoderbyte' => [
-            'form_schema' => [
-                'link_report_coderbyte' => [
-                    'type' => 'text',
-                    'label' => 'Hasil Coderbyte',
-                ],
-            ],
-        ],
         'act_konfirmPsikologSelesai' => [
             'form_schema' => [
                 'personalities_file' => [
-                    'type' => 'text',
-                    'label' => 'Personality',
+                    'type' => 'uploader',
+                    'label' => 'Hasil Tes Personality',
                 ],
                 'temubakat_file' => [
-                    'type' => 'text',
-                    'label' => 'Temu Bakat',
+                    'type' => 'uploader',
+                    'label' => 'Hasil Tes Temu Bakat',
                 ],
             ],
         ],
         'act_konfirmTeknisSelesai' => [
             'form_schema' => [
                 'jawaban_tes_teknis' => [
-                    'type' => 'text',
+                    'type' => 'redactor',
                     'label' => 'Jawaban',
                 ],
                 'tes_teknis_file' => [
                     'type' => 'uploader',
                     'label' => 'File',
+                    'hint' => 'Source code, dokumen, diagram dan dokumen pendukung lain (jika tersedia)'
                 ],
             ],
         ],
