@@ -59,6 +59,7 @@ return [
                     'name' => 'name',
                     'type' => 'text',
                     'label' => 'Company Name',
+                    'limit' => 4
                 ],
             ],
         ],

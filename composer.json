@@ -64,6 +64,7 @@
         "laravel-shift/blueprint": "^1.24",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
+        "nunomaduro/larastan": "^0.7.12",
         "phpunit/phpunit": "^9.3.3",
         "spatie/laravel-web-tinker": "^1.7",
         "wulfheart/pretty_routes": "^0.3.0"

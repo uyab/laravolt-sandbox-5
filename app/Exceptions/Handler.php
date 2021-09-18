@@ -17,7 +17,7 @@ class Handler extends ExceptionHandler
             ? response()->json(['message' => $exception->getMessage()], 401)
             : redirect()
                 ->guest($exception->redirectTo() ?? route('auth::login.show'))
-                ->withWarning(__('Silakan login terlebih dahulu'));
+                ->with('warning', __('Silakan login terlebih dahulu') ?? '');
     }
 
     /**
@@ -58,12 +58,10 @@ class Handler extends ExceptionHandler
         }
 
         if ($e instanceof AuthorizationException) {
-            return redirect()->back(302, [], route('home'))->withError(
-                __(
-                    'Anda tidak diizinkan mengakses halaman :url',
-                    ['url' => $request->fullUrl()]
-                )
-            );
+            return redirect()
+                ->back(302, [], route('home'))
+                ->withInput()
+                ->with('error', $e->getMessage());
         }
 
         return parent::render($request, $e);
