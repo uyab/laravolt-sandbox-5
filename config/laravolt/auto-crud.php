@@ -23,13 +23,13 @@ return [
                     'type' => 'text',
                     'name' => 'nama',
                     'label' => 'Nama',
-                    'rules' => ['required'],
+                    // 'rules' => ['required'],
                 ],
                 [
-                    'type' => 'text',
+                    'type' => 'rupiah',
                     'name' => 'jabatan',
                     'label' => 'Jabatan',
-                    'rules' => ['required'],
+                    // 'rules' => ['required'],
                 ],
                 \Laravolt\Fields\BelongsTo::make(\App\Models\Company::class)
                     ->name('company_id')
@@ -44,7 +44,7 @@ return [
                     'label' => 'Tanda Tangan',
                     'limit' => 1,
                     'as_array' => false,
-                    'rules' => ['required'],
+                    // 'rules' => ['required'],
                     'visibility' => [
                         'index' => false,
                     ],

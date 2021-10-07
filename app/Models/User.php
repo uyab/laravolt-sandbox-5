@@ -22,4 +22,9 @@ class User extends \Laravolt\Platform\Models\User
     protected $hidden = ['password', 'remember_token'];
 
     protected $fillable = ['name', 'email', 'username', 'password', 'status', 'timezone'];
+
+    public function getAvatar()
+    {
+        return 'foo';
+    }
 }
