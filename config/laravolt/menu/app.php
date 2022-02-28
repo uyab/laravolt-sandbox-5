@@ -3,8 +3,11 @@
 return [
     'Menu Utama' => [
         'menu' => [
-            'Dashboard' => [
-                'route' => 'dashboard',
+            'Home' => [
+                'route' => 'home',
+            ],
+            'Permohonan' => [
+                'route' => 'permohonan.index',
             ],
         ],
     ],

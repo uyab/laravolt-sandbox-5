@@ -19,7 +19,10 @@ return [
         'password' => env('CAMUNDA_PASSWORD', 'demo'),
         'tenant_id' => env('CAMUNDA_TENANT_ID', ''),
     ],
-
+    'metabase' => [
+        'secret' => env('METABASE_SECRET'),
+        'url' => env('METABASE_URL'),
+    ],
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
@@ -35,5 +38,8 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-
+    'onlyoffice' => [
+        'groupoffice_url' => env('GROUPOFFICE_URL'),
+        'onlyoffice_url' => env('ONLYOFFICE_URL')
+    ],
 ];

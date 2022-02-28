@@ -8,6 +8,7 @@ Route::middleware(['auth', 'verified'])
     ->group(
         function () {
             Route::get('/home', Home::class)->name('home');
+            Route::resource('permohonan', \App\Http\Controllers\PermohonanController::class);
         }
     );
 

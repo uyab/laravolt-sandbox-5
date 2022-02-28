@@ -35,6 +35,13 @@
             "options": {
                 "symlink": true
             }
+        },
+        {
+            "type": "path",
+            "url": "../laravolt-standalone/metabase/",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "require": {
@@ -51,11 +58,15 @@
         "laravolt/camunda": "dev-master",
         "laravolt/indonesia": "1.0.x-dev",
         "laravolt/laravolt": "dev-master",
+        "laravolt/metabase": "dev-main",
+        "laravolt/onlyoffice": "dev-main",
         "livewire-ui/modal": "^1.0",
         "livewire/livewire": "^2.4",
         "lsnepomuceno/laravel-a1-pdf-sign": "^0.0.7",
         "spatie/laravel-ray": "^1.17",
-        "stancl/tenancy": "^3.4"
+        "spatie/ssh": "^1.7",
+        "stancl/tenancy": "^3.4",
+        "ext-libxml": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
@@ -102,7 +113,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan vendor:publish --tag=laravolt-assets"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
